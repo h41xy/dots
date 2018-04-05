@@ -1,13 +1,15 @@
 " ----------------------------------------
 " Plugin Section
 " ----------------------------------------
-call plug#begin()
-Plug 'vim-airline/vim-airline', { 'branch': 'master' } | Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim', { 'branch': 'master' }
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
-call plug#end()
+"call plug#begin()
+"Plug 'vim-airline/vim-airline', { 'branch': 'master' } | Plug 'vim-airline/vim-airline-themes'
+"Plug 'ctrlpvim/ctrlp.vim', { 'branch': 'master' }
+"Plug 'tpope/vim-fugitive'
+"Plug 'scrooloose/nerdtree'
+"call plug#end()
 " ----------------------------------------
+"
+
 
 set number
 
@@ -60,6 +62,20 @@ nnoremap <C-l> <C-w>l
 " Clear match highlighting
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
+" Comment line with #
+" Somehow <C-_> is really <C-/>, needs to be mapped this way or else no
+" function
+nnoremap <C-_> :s/^/#<cr>:noh<cr>
+nnoremap <leader>/ :s/^#/<cr>:noh<cr>
+
+" ctrlP like fuzzy recursive finder for current dir
+noremap <leader>p :FZF<cr>
+
+" buffer movements
+noremap <leader>] :bn<cr>
+noremap <leader>[ :bp<cr>
+noremap <leader>' :Buffers<cr>
+
 " Visual line nav, not real line nav
 " If you wrap lines, vim by default won't let you move down one line to the
 " wrapped portion. This fixes that.
@@ -67,4 +83,20 @@ noremap j gj
 noremap k gk
 
 " Colorscheme
-colorscheme darkblue
+colorscheme apprentice
+
+" fzf matches colorscheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
