@@ -115,3 +115,8 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
+
+"""""" Neovim Terminal settings
+" Make escape work in the Neovim terminal.
+  tnoremap <leader><Esc> <C-\><C-n>
+
