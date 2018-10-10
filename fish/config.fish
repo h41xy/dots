@@ -7,6 +7,8 @@ source ~/.config/fish/proxy.settings
 set -x EDITOR nvim
 set -x VISUAL nvim
 
+# disable greeting
+set fish_greeting
 
 function fish_user_key_bindings
     fzf_key_bindings
