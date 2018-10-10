@@ -8,16 +8,18 @@ Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
 
-URxvt*font:                             xft:Noto Mono:pixelsize=16:antialias=true:hinting=true, \
-                                        xft:DejaVu Sans Mono Book 9:pixelsize=18, \
-                                        xft:Unifont:pixelsize:16, \
-                                        -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-URxvt*boldFont:                         xft:Noto Mono:pixelsize=16:antialias=true:hinting=true, \
-                                        xft:DejaVu Sans Mono Book 9:pixelsize=18, \
-URxvt*italicFont:                       xft:Noto Mono:pixelsize=16:antialias=true:hinting=true, \
-                                        xft:DejaVu Sans Mono:pixelsize=18
-URxvt*boldItalicFont:                   xft:Noto Mono:pixelsize=16:antialias=true:hinting=true, \
-                                        xft:DejaVu Sans Mono:pixelsize=18
+URxvt*font:                             xft:Noto Mono:size=16:antialias=true:hinting=true, \
+                                        xft:DejaVu Sans Mono Book 9:size=18, \
+                                        xft:Unifont:size=16
+URxvt*boldFont:                         xft:Noto Mono:size=16:antialias=true:hinting=true, \
+                                        xft:DejaVu Sans Mono Book 9:size=18, \
+                                        xft:Unifont:size=16
+URxvt*italicFont:                       xft:Noto Mono:size=16:antialias=true:hinting=true, \
+                                        xft:DejaVu Sans Mono:size=18, \
+                                        xft:Unifont:size=16
+URxvt*boldItalicFont:                   xft:Noto Mono:size=16:antialias=true:hinting=true, \
+                                        xft:DejaVu Sans Mono:size=18, \
+                                        xft:Unifont:size=16
 !URxvt*italicFont:                       xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
 !URxvt*boldItalicFont:                   xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
 
@@ -25,7 +27,8 @@ URxvt*boldItalicFont:                   xft:Noto Mono:pixelsize=16:antialias=tru
 !# URXVT settings
 !################
 
-URxvt.depth:                32
+!URxvt.depth:                32
+URxvt.depth:                24
 URxvt.geometry:             90x30
 URxvt.loginShell:           true
 URxvt.internalBorder:       3
@@ -34,6 +37,9 @@ URxvt.lineSpace: 0
 URxvt*saveLines:            65000
 
 URxvt*scrollBar: false
+
+!tabs
+URxvt.perl-ext-common: default,tabbed,font-size
 
 
 !##########
