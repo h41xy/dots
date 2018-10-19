@@ -1,7 +1,9 @@
 #set -x FZF_DEFAULT_COMMAND 'find . -type f'
 set -x FZF_DEFAULT_COMMAND "ag -g '.*'"
 
-source ~/.config/fish/proxy.settings
+if test -e ~/.config/fish/proxy.settings
+    source ~/.config/fish/proxy.settings
+end
 
 # Editor
 set -x EDITOR nvim
