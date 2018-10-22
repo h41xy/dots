@@ -3,7 +3,9 @@
 set -x FZF_DEFAULT_COMMAND "ag -U --ignore 'nvim/undodir' --hidden -g '.*'"
 set -g FZF_CTRL_T_COMMAND "command ag --ignore 'nvim/undodir' -f -g '.*' \$dir 2> /dev/null"
 
-source ~/.config/fish/proxy.settings
+if test -e ~/.config/fish/proxy.settings
+    source ~/.config/fish/proxy.settings
+end
 
 # Editor
 set -x EDITOR nvim
