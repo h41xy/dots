@@ -121,4 +121,7 @@ endif
 """""" Neovim Terminal settings
 " Make escape work in the Neovim terminal.
   tnoremap <leader><Esc> <C-\><C-n>
-
+" Saved lines from terminal output ist 10000 default, set to 1Million
+" Setting this bigger results in an error, set to -1 if you want more
+set scrollback=100000
+"autocmd TermOpen * setlocal scrollback=100000
