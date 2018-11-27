@@ -1,7 +1,7 @@
 #set -x FZF_DEFAULT_COMMAND 'find . -type f'
 #set -x FZF_DEFAULT_COMMAND "ag -g '.*'"
 set -x FZF_DEFAULT_COMMAND "ag -U --ignore 'nvim/undodir' --hidden -g '.*'"
-set -g FZF_CTRL_T_COMMAND "command ag --ignore 'nvim/undodir' -f -g '.*' \$dir 2> /dev/null"
+set -g FZF_CTRL_T_COMMAND "command ag --hidden --ignore 'nvim/undodir' -f -g '.*' \$dir 2> /dev/null"
 
 if test -e ~/.config/fish/proxy.settings
     source ~/.config/fish/proxy.settings
@@ -26,3 +26,7 @@ set -x LESS_TERMCAP_se (printf "\033[0m")
 set -x LESS_TERMCAP_so (printf "\033[01;44;33m")  
 set -x LESS_TERMCAP_ue (printf "\033[0m")  
 set -x LESS_TERMCAP_us (printf "\033[01;32m")  
+
+# golang stuff
+set -gx PATH /opt/go/bin $PATH
+set -x -U GOPATH $HOME/dev/go
