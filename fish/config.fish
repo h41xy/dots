@@ -1,8 +1,8 @@
 #set -x FZF_DEFAULT_COMMAND 'find . -type f'
 #set -x FZF_DEFAULT_COMMAND "ag -g '.*'"
-set -x FZF_DEFAULT_COMMAND "ag -U --ignore 'nvim/undodir' --hidden -g '.*'"
+set -x FZF_DEFAULT_COMMAND "ag -U --ignore 'nvim/undodir' --ignore-dir '.m2' --hidden -g '.*'"
 #set -g FZF_CTRL_T_COMMAND "command ag --hidden --ignore 'nvim/undodir' -f -g '.*' \$dir 2> /dev/null"
-set -g FZF_CTRL_T_COMMAND "command fdfind '.*' --hidden --follow --exclude 'nvim/undodir' --color never \$dir 2> /dev/null"
+set -g FZF_CTRL_T_COMMAND "command fdfind '.*' --hidden --follow --exclude 'nvim/undodir' --exclude '.m2/*'--color never \$dir 2> /dev/null"
 set -g FZF_ALT_C_COMMAND "command fdfind '.*' --hidden --follow --exclude 'nvim/undodir' --exclude '.m2/*' --color never --type d \$dir 2> /dev/null"
 
 if test -e ~/.config/fish/proxy.settings
