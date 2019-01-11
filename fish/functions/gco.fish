@@ -1,3 +1,3 @@
-function gck
+function gco
     git checkout $argv;
 end
