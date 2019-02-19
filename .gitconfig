@@ -1,0 +1,15 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = h41
+	email = h41x@posteo.de
+[alias]
+	conflicts = diff --name-only --diff-filter=U
+    s = status
+    a = add
+    c = commit
+    cm = commit -m
+    ck = checkout
+    d = diff
+    l = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)(%cr) %C(magenta)<%an - %ae>%Creset' --abbrev-commit --date=relative --author-date-order
+    la = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(cyan)(%cr) %C(magenta)<%an - %ae>%Creset' --abbrev-commit --date=relative --author-date-order --all
