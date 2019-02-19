@@ -125,3 +125,44 @@ endif
 " Setting this bigger results in an error, set to -1 if you want more
 set scrollback=100000
 "autocmd TermOpen * setlocal scrollback=100000
+
+
+"""""" Statusline
+" Get the current git branch
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+" display current git branch if in a git folder
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+" start empty
+set statusline=
+" no idea but it changes Color. see :h highlight-groups
+set statusline+=%#PmenuSel#
+" show git branch
+set statusline+=%{StatuslineGit()}
+" color, see above
+set statusline+=%#LineNr#
+" show filepath, relative
+set statusline+=\ %f
+" modified flag 
+set statusline+=%m\
+" seperation point
+set statusline+=%=
+" color, see above
+set statusline+=%#CursorColumn#
+" filetype
+set statusline+=\ %y
+" file encoding
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" format
+set statusline+=\[%{&fileformat}\]
+" percentage through file in lines
+set statusline+=\ %p%%
+" line number : column number
+set statusline+=\ %l:%c
+set statusline+=\ 
