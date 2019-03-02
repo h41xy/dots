@@ -47,8 +47,8 @@ URxvt*saveLines:            65000
 URxvt*scrollBar: false
 
 !tabs
-URxvt.perl-ext-common: default,tabbed
 !URxvt.perl-ext-common: default,tabbed,font-size
+URxvt.perl-ext-common: default,tabbed
 
 
 !##########

@@ -51,3 +51,7 @@ set -x -U GOPATH $HOME/dev/go
 
 # scripts
 set -gx PATH ~/bin $PATH
+#set -x GOPATH $HOME/dev/go
+#set -x PATH $PATH (go env GOPATH)/bin
+#
+#set -x PATH $PATH ~/bin

@@ -1,7 +1,74 @@
-Xft.dpi: 180
+! ------------------------------------------------------------------------------
+! Import Colour from ~/.xrdb
+! ------------------------------------------------------------------------------
+
+#include ".xrdb/color/nord"
+#include ".xrdb/rofi/nord"
+!#include ".xrdb/fonts/tewi"
+
+
+!----------------------xresources------------------------------------------------
+URxvt*font:                             xft:Noto Mono:size=14:antialias=true:hinting=true, \
+                                        xft:DejaVu Sans Mono Book 9:size=18, \
+                                        xft:Unifont:size=16
+!rofi.font:-lucy-tewi-medium-r-normal-*-11-90-100-100-c-60-iso10646-1
+
+*.scrollBar: false
+*.saveLines: 65535
+*.cursorBlink: true
+*.tripleclickwords: true
+*.reverseVideo: true
+!
+**iconFile: /usr/share/icons/custom/iconres/terminal.png
+!
+!*.highlightColor: #ccd400
+!*.highlightTextColor: #ffffff
+*.jumpScroll: true
+! ------------------------------------------------------------------------------
+! URxvt configs
+! ------------------------------------------------------------------------------
+
+!URxvt.geometry: 		72x18
+URxvt*letterSpace: 	    0
+URxvt.lineSpace: 		0
+URxvt*internalBorder:   10
+!URxvt*internalBorder:   24
+URxvt*externalBorder:   0
+URxvt*depth:            32
+URxvt*saveline:         2000
+URxvt*termName:         rxvt-256color
+URxvt*iso14755:         false
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+!URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select
+!URxvt.copyCommand:      xclip -i -selection clipboard
+!URxvt.pasteCommand:     xclip -o -selection clipboard
+!URxvt.keysym.M-c:       perl:clipboard:copy
+!URxvt.keysym.M-v:       perl:clipboard:paste
+!URxvt.keysym.M-C-v:     perl:clipboard:paste_escaped
+!URxvt.keysym.M-Escape:  perl:keyboard-select:activate
+!URxvt.keysym.Shift-Up:	command:\033]720;1\007
+!URxvt.keysym.Shift-Down:command:\033]721;1\007
+!URxvt.keysym.M-s:       perl:keyboard-select:search
+!URxvt.keysym.M-u:       perl:url-select:select_next
+URxvt.urlLauncher:      firefox
+URxvt.underlineURLs:    true
+URxvt.urlButton:        1
+URxvt*buffered:         false          
+URxvt.urgentOnBell: 	True
+
+URxvt.perl-ext-common: font-size
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+
 Xft.autohint: 0
-Xft.antialias: 1
-Xft.hinting: true
-Xft.hintstyle: hintslight
-Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+! from old config
+!Xft.dpi: 96
+URxvt.loginShell:           true
