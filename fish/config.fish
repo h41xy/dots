@@ -8,12 +8,19 @@ if type -q fzf
         set -g FZF_CTRL_T_COMMAND "command ag --hidden --ignore 'nvim/undodir' -f -g '.*' \$dir 2> /dev/null"
    end
    if type -q fd or type -q fdfind
-        set -g FZF_DEFAULT_COMMAND "command fdfind '.*' --hidden --follow --exclude 'nvim/undodir' --exclude '.m2/*' --color never \$dir 2> /dev/null"
-        set -g FZF_CTRL_T_COMMAND "command fdfind '.*' --hidden --follow --exclude 'nvim/undodir' --exclude '.m2/*' --color never \$dir 2> /dev/null"
-        set -g FZF_ALT_C_COMMAND "command fdfind '.*' --hidden --follow --exclude 'nvim/undodir' --exclude '.m2/*' --color never --type d \$dir 2> /dev/null"
+        set -g FZF_DEFAULT_COMMAND "command fdfind '.*' --hidden --no-ignore --follow --exclude 'nvim/undodir' --exclude '.m2/*' --color never \$dir 2> /dev/null"
+        set -g FZF_CTRL_T_COMMAND "command fdfind '.*' --hidden --no-ignore --follow --exclude 'nvim/undodir' --exclude '.m2/*' --color never \$dir 2> /dev/null"
+        set -g FZF_ALT_C_COMMAND "command fdfind '.*' --hidden --no-ignore --follow --exclude 'nvim/undodir' --exclude '.m2/*' --color never --type d \$dir 2> /dev/null"
    end
 end
+# fzf autopreview
+set -g FZF_DEFAULT_OPTS "--preview 'cat {}'"
+# bat ist cat with syntax highlight
+if type -q bat
+    set -g FZF_DEFAULT_OPTS "--preview 'bat {}'"
+end
 
+## Set proxy if existend
 if test -e ~/.config/fish/proxy.settings
     source ~/.config/fish/proxy.settings
 end
@@ -29,11 +36,12 @@ function fish_user_key_bindings
     fzf_key_bindings
 end
 
+## keybindings
 if type -q setxkbmap
-   ## keybindings
-   setxkbmap -layout us -variant altgr-intl -option nodeadkeys
-   # disable capslock, switch it to ctrl
-   setxkbmap -option ctrl:nocaps
+    # set us laytout without deadkeys
+    setxkbmap -layout us -variant altgr-intl -option nodeadkeys
+    # disable capslock, switch it to ctrl
+    setxkbmap -option ctrl:nocaps
 end
 
 # Set man page colors
@@ -51,3 +59,16 @@ set -x -U GOPATH $HOME/dev/go
 
 # scripts
 set -gx PATH ~/bin $PATH
+
+# abbreviations
+abbr gs 'git status'
+abbr ga 'git add'
+abbr g. 'git add .'
+abbr gcm 'git commit -m'
+abbr gck 'git checkout'
+abbr gd ' git diff'
+abbr gf 'git fetch'
+abbr gp 'git push'
+
+# sudo !!
+alias dang='commandline -i "sudo $history[1]";history delete --exact --case-sensitive doh'
