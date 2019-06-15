@@ -1,1 +1,7 @@
 nvim/undodir/*
+nvim/.netrwhist
+nvim/autoload*
+nvim/plugged*
+fish/fish_variables
+fish/fishd.*
+
