@@ -76,3 +76,19 @@ abbr gp 'git push'
 
 # sudo !!
 alias dang='commandline -i "sudo $history[1]";history delete --exact --case-sensitive doh'
+
+# java does not know bspwm
+#
+# Java maintains a hard-coded list of window managers that it knows about. When you use a different WM it simply assumes that it is reparenting and may present you with empty grey windows if your WM is actually not reparenting.
+
+#If you run into this problem with OpenJDK version 8u40_3 or above, you can simply set the environment variable _JAVA_AWT_WM_NONREPARENTING=1 and your GUI applications should behave as expected. In prior versions or when using the Oracle JDK you may need to trick Java into thinking that you are using a non-reparenting WM that it knows about, like LG3D. To do that you need the wmname tool from the same-named repo package:
+
+# xbps-install -S wmname
+
+#Simply call it like this:
+
+#$ wmname LG3D
+
+#Afterwards your Java GUI applications should run as intended. However, you need to re-run the program every time your WM restarts or you reboot the computer. 
+#
+set -x _JAVA_AWT_WM_NONREPARENTING 1
