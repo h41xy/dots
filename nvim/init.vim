@@ -76,7 +76,12 @@ noremap <leader>] :bn<cr>
 noremap <leader>[ :bp<cr>
 noremap <leader>' :Buffers<cr>
 " delete buffer but dont close window
-noremap <leader>q :bp\|bd #<CR>
+"noremap <leader>q :bp\|bd #<CR>
+
+" Easier save
+noremap <leader>w :w<CR>
+"Easier leave
+noremap <leader>q :q<CR>
 
 " Visual line nav, not real line nav
 " If you wrap lines, vim by default won't let you move down one line to the
